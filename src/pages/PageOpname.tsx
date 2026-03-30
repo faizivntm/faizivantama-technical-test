@@ -156,30 +156,32 @@ const PageOpname = () => {
 
         <div className="h-1 w-full bg-black" />
 
-        <ul>
-          <div className="flex ">
-            <li className="mr-2">NAME</li>
-            <li className="mr-2">CODE</li>
-            <li className="mr-2">TOT STOCK</li>
-            <li className="mr-2">OPNAME</li>
+        <div className="w-full">
+          <div className="grid grid-cols-5 gap-2 font-bold">
+            <div>NAME</div>
+            <div>CODE</div>
+            <div>TOT STOCK</div>
+            <div>OPNAME</div>
+            <div>ACTION</div>
           </div>
-        </ul>
 
-        <div className="h-1 w-full bg-black" />
+          <div className="h-1 w-full bg-black my-2" />
 
-        <ul>
-          {tableStock.map((val, key) => (
-            <div className="flex" key={key}>
-              <li
-                className={`mr-2 ${val.opname === 0 ? "text-green-500" : "text-black"}`}
+          {tableStock.map((val) => (
+            <div
+              className="grid grid-cols-5 gap-2 items-center mt-2"
+              key={val.productCode}
+            >
+              <div
+                className={`${val.opname === 0 ? "text-green-500" : "text-black"}`}
               >
                 {val.productName}
-              </li>
-              <li className="mr-2">{val.productCode}</li>
-              <li className="mr-2">{val.totStock}</li>
-              <li className="mr-2">{val.opname}</li>
+              </div>
+              <div>{val.productCode}</div>
+              <div>{val.totStock}</div>
+              <div>{val.opname}</div>
               <button
-                className="hover:cursor-pointer"
+                className="bg-gray-500 text-white py-1 px-3 rounded hover:cursor-pointer"
                 onClick={() => {
                   hanldeNavigateOpnameProcess(
                     val.productCode,
@@ -193,7 +195,7 @@ const PageOpname = () => {
               </button>
             </div>
           ))}
-        </ul>
+        </div>
       </div>
     </div>
   );
