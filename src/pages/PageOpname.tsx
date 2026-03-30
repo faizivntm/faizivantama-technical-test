@@ -173,7 +173,7 @@ const PageOpname = () => {
               key={val.productCode}
             >
               <div
-                className={`${val.opname === 0 ? "text-green-500" : "text-black"}`}
+                className={`${val.opname !== 0 ? "text-green-500" : "text-black"}`}
               >
                 {val.productName}
               </div>
